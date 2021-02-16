@@ -1,0 +1,17 @@
+<header>
+  <app-header></app-header>
+</header>
+<div class="container-fluid">
+  <nav class="navbar">
+      <a class="navbar-brand">
+        <button [routerLink]='["/"]' type="button" class="col btn btn-outline-primary btn-sm mr-1 ms-5 ">Home</button>
+        <button [routerLink]='["/About"]' routerLinkActive="active" type="button"
+          class="col btn btn-outline-primary btn-sm">About</button>
+      </a>
+    <app-search></app-search>
+  </nav>
+</div>
+
+<main class="container-fluid">
+  <router-outlet></router-outlet>
+</main>

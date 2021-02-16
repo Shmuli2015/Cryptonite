@@ -1,0 +1,8 @@
+<div class="parallax"></div>
+<div class="row parallax">
+    <div *ngFor="let coin of coinList" class="col-12 col-md-4 col-lg-3">
+        <app-coins [coin]="coin"></app-coins>
+        <br>
+    </div>
+</div>
+<div class="parallax"></div>

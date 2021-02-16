@@ -1,0 +1,54 @@
+<div class="card" style="width: 16 rem;">
+  <div class="card-body">
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" [id]="coin.id" [disabled]=disable (click)="onClick()"
+        [checked]="checked">
+      <label class="custom-control-label" [for]="coin.id" (click)=" open(content)"></label>
+    </div>
+    <h5 class="card-title">{{coin.symbol}}</h5>
+    <p class="card-text">{{coin.id}}</p>
+    <p>
+      <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle(); getInfo()">
+        {{press}} Info
+      </button>
+    </p>
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+      <div class="card">
+        <div class="card-body">
+          <div *ngIf="!isCollapsed">
+            <div *ngIf="!coinInfo.pic" class="spinner-border" role="status">
+              <span class="sr-only"></span>
+            </div>
+            <div>
+              <img src="{{coinInfo.pic}}">
+            </div>
+            {{coinInfo.usd | currency}}
+            <br>
+            {{coinInfo.ils | currency:"ILS"}}
+            <br>
+            {{coinInfo.eur | currency:"EUR"}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">You can only select 5!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ul>
+      <li *ngFor="let dis of disabled">
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" [id]="dis">
+          <label class="custom-control-label" [for]="dis"></label>
+          {{dis}}
+        </div>
+      </li>
+    </ul>
+  </div>
+</ng-template>

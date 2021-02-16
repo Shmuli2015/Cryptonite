@@ -1,0 +1,6 @@
+<form class="form-inline" #searchForm="ngForm">
+  <input class="form-control mr-sm-2" type="search" #searchCoin placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+    (click)="searchOnCoin(searchCoin.value)">{{search}}</button>
+</form>
+<div class="text-danger">{{results}}</div>
